@@ -1,4 +1,5 @@
 import re
+
 with open("input.txt", "r") as file:
     corrupt_memory = file.read()
     file.close()

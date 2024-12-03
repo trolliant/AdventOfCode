@@ -1,22 +1,16 @@
 import bisect
 
-leftList = []
-rightList = []
+left_list = []
+right_list = []
+
 with open("input.txt", "r") as file:
-    for numList in file:
-        numList = (numList.split("   "))
-        num1 = int(numList[0])
-        num2 = int(numList[1].rstrip())
-        bisect.insort(leftList, num1)
-        bisect.insort(rightList, num2)
+    for num_list in file:
+        num_list = (num_list.split("   "))
+        num1 = int(num_list[0])
+        num2 = int(num_list[1].rstrip())
+        bisect.insort(left_list, num1)
+        bisect.insort(right_list, num2)
     file.close()
 
-totalDist = 0
-for i, num1 in enumerate(leftList):
-    num2 = rightList[i]
-    if num1 > num2:
-        dist = num1 - num2
-    else:
-        dist = num2 - num1
-    totalDist += dist
-print(f"final distance: {totalDist}")
+total_dist = sum(abs(num1 - right_list[i]) for i, num1 in enumerate(left_list))
+print(f"final distance: {total_dist}")
