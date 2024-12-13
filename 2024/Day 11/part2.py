@@ -3,7 +3,7 @@ from collections import Counter
 with open("input.txt", "r") as file:
     stones = Counter(map(int, file.read().split()))
 
-for i in range(10000):
+for i in range(75):
     new_stones = Counter()
     for stone, count in stones.items():
         if stone == 0:
